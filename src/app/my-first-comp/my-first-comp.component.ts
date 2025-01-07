@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MessageDetailsComponent } from "../message-details/message-details.component";
+import { MyFirstService } from '../services/my-first.service';
 
 @Component({
   selector: 'app-my-first-comp',
@@ -17,18 +18,25 @@ export class MyFirstCompComponent {
   isSubmitted : boolean = false;
   messages : Array<any> = [];
 
+  constructor(
+    private service : MyFirstService
+  ) {
+    this.messages = this.service.getAllMessages();
+    this.isSubmitted = this.messages.length > 0; // Vérifier si le tableau de messages n'est pas vide
+  }
+
   onSubmit() : void {
     this.isSubmitted = true;
-    this.messages.push({
-      name: this.name,
-      email: this.email,
-      message: this.message
+    this.service.insert({
+      'name': this.name,
+      'email': this.email,
+      'message': this.message
     });
 
     console.log(this.messages);
   }
 
   deleteMessage(index : number) : void {
-    this.messages.splice(index, 1); // Supprimer un élément du tableau à l'index donné
+    this.service.deleteMessage(index); // Supprimer un élément du tableau à l'index donné
   }
 }

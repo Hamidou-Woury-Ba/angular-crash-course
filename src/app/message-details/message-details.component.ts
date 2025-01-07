@@ -16,7 +16,7 @@ export class MessageDetailsComponent {
   index : number = -1;
 
   @Output() // Ceci est un décorateur qui permet de définir une propriété de sortie pour le composant enfant 
-  delete : EventEmitter<number> = new EventEmitter<number>();
+  delete : EventEmitter<number> = new EventEmitter<number>(); // Émetteur d'événements pour la suppression d'un message 
 
   onDeleted() : void {
     this.delete.emit(this.index); // Émettre un événement de suppression avec l'index de l'élément à supprimer
