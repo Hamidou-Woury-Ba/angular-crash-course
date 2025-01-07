@@ -64,8 +64,13 @@
         </table>
     </div> -->
 
-    <div *ngIf="isSubmitted"> 
-        <app-message-details *ngFor="let msg of messages; let i = index" [message]="msg">
+    <div *ngIf="isSubmitted">
+        <app-message-details 
+            *ngFor="let msg of messages; let i = index" 
+            [message]="msg" 
+            [index]="i"
+            (delete)="deleteMessage($event)" 
+        >
         </app-message-details>
     </div>
 </div>

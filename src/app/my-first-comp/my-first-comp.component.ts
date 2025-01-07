@@ -27,4 +27,8 @@ export class MyFirstCompComponent {
 
     console.log(this.messages);
   }
+
+  deleteMessage(index : number) : void {
+    this.messages.splice(index, 1); // Supprimer un élément du tableau à l'index donné
+  }
 }
