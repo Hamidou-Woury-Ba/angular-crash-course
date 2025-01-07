@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MessageDetailsComponent } from "../message-details/message-details.component";
 import { MyFirstService } from '../services/my-first.service';
+import { MenuComponent } from "../menu/menu.component";
 
 @Component({
   selector: 'app-my-first-comp',
   standalone: true,
-  imports: [FormsModule, CommonModule, MessageDetailsComponent],
+  imports: [FormsModule, CommonModule, MessageDetailsComponent, MenuComponent],
   templateUrl: './my-first-comp.component.html',
   styleUrl: './my-first-comp.component.scss'
 })
