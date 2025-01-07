@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MessageDetailsComponent } from "../message-details/message-details.component";
 
 @Component({
   selector: 'app-my-first-comp',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MessageDetailsComponent],
   templateUrl: './my-first-comp.component.html',
   styleUrl: './my-first-comp.component.scss'
 })

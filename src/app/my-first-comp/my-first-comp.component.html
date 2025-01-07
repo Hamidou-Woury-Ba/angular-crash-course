@@ -12,14 +12,6 @@
             </tr>
             <tr>
                 <td>
-                    <label for="name">Name :</label>
-                </td>
-                <td>
-                    <input type="text" id="name" [(ngModel)]="name" name="name" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <label for="email">Email :</label>
                 </td>
                 <td>
@@ -41,7 +33,7 @@
         </table>
     </form>
 
-    <div *ngIf="isSubmitted">
+    <!-- <div *ngIf="isSubmitted">
         <table border="1" [cellPadding]="10" [cellSpacing]="0">
             <tr>
                 <td>
@@ -70,5 +62,10 @@
                 </td>
             </tr>
         </table>
+    </div> -->
+
+    <div *ngIf="isSubmitted"> 
+        <app-message-details *ngFor="let msg of messages; let i = index" [message]="msg">
+        </app-message-details>
     </div>
 </div>
