@@ -14,8 +14,16 @@ export class MyFirstCompComponent {
   email : String = '';
   message : String = '';
   isSubmitted : boolean = false;
+  messages : Array<any> = [];
 
   onSubmit() : void {
     this.isSubmitted = true;
+    this.messages.push({
+      name: this.name,
+      email: this.email,
+      message: this.message
+    });
+
+    console.log(this.messages);
   }
 }
