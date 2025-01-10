@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/api/Products/product.service';
+import { ProductRepresentation } from '../services/api/models/product-representation';
 
 @Component({
   selector: 'app-about',
@@ -8,21 +9,38 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
-export class AboutComponent implements OnInit {
-
-  param : any;
-  queryParam : any;
+export class AboutComponent {
 
   constructor(
-    private activatedRoute : ActivatedRoute
+    private service: ProductService
   ) {
-    
+
   }
 
+  // ngOnInit(): void {
+  //     this.service.getAllProductsWithLimit().subscribe({
+  //       next: (data : ProductRepresentation[]) : void => {
+  //         console.log(data);
+  //       }
+  //     });
+  // }
+
   ngOnInit(): void {
-      console.log(this.activatedRoute)
-      this.param = this.activatedRoute.snapshot.params['username'];
-      this.queryParam = this.activatedRoute.snapshot.queryParams['Courses'];
+    const product: ProductRepresentation = {
+      title: 'test',
+      description: 'test',
+      category: 'test',
+      image: 'https://some-image.jpg',
+      price: 10,
+    }
+    this.service.createProduct(product).subscribe({
+      next: (result: ProductRepresentation): void => {
+        console.log(result);
+      },
+      error: (error: any): void => {
+        console.error(error);
+      }
+    });
   }
 
 }

@@ -24,4 +24,12 @@ export class MenuComponent {
     this.router.navigate(['/about']);
   }
 
+  navigateToNewProduct() : void {
+    this.router.navigate(['/new-product']);
+  }
+
+  navigateToProduct() : void {
+    this.router.navigate(['/products']);
+  }
+
 }

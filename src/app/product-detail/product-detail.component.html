@@ -1,0 +1,13 @@
+<div>
+    <img [src]="product.image" [attr.alt]="product.title" style="width: 300px; height: 300px;">
+    <div>
+        <h3>{{product.title}}</h3>
+        <p>{{product.price}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.category}}</p>
+        <div>
+            <span>{{product.rating?.rate}}</span>
+            <span>{{product.rating?.count}}</span>
+        </div>
+    </div>
+</div>
